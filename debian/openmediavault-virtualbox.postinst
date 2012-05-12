@@ -1,0 +1,92 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault-website.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Marcel Beck <marcel.beck@mbeck.org>
+# @copyright Copyright (c) 2012 Marcel Beck
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_VBOX_USER=${OMV_VBOX_USER:-"vbox"}
+
+case "$1" in
+    configure)
+
+	# Check for XML config
+    if ! omv_config_exists "//services/virtualbox"; then
+		omv_config_add_element "//services" "virtualbox" ""
+		omv_config_add_element "//services/virtualbox" "enable" "0"
+		omv_config_add_element "//services/virtualbox" "enable-advanced" "0"
+		omv_config_add_element "//services/virtualbox" "vm-folder" ""
+	fi
+
+	# Check for user config
+	if [ ! -e /etc/default/openmediavault-virtualbox ]; then
+		
+		# No user config, should the user be created?
+		if [ $(groups ${OMV_VBOX_USER} 2>/dev/null | wc -l) -eq 0 ]; then
+			
+			# Generate random password
+			NPSWD=$(makepasswd --crypt-md5 --chars=10)
+			NPSWD_CLEAR=$(echo ${NPSWD} | awk '{ print $1 }')
+			NPSWD_CRYPT=$(echo ${NPSWD} | awk '{ print $2 }')
+			
+			# Add user
+			useradd -d /home/${OMV_VBOX_USER} -c "openmediavault-virtualbox" -m -p ${NPSWD_CRYPT} -N -g vboxusers ${OMV_VBOX_USER}
+			
+			# Store password for vboxwebsrv connectivity
+			echo "${NPSWD_CLEAR}" >/etc/default/openmediavault-virtualbox
+			
+		fi
+		
+	fi
+	
+	# Fix permissions
+	chown root:root /etc/default/openmediavault-virtualbox
+	chmod 0600 /etc/default/openmediavault-virtualbox
+	chmod u+rx /etc/init.d/openmediavault-virtualbox
+	
+	omv_install_fixperms
+	
+	# Clean up old version of plugin
+	if [ -f /etc/apache2/sites-enabled/phpvirtualbox ]; then
+		/bin/rm -f /etc/apache2/sites-enabled/phpvirtualbox
+	fi
+
+	if [ -f /etc/apache2/sites-available/phpvirtualbox ]; then
+		/bin/rm -f /etc/apache2/sites-available/phpvirtualbox
+	fi
+	
+	# Reload apache config
+	monit restart apache2
+
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+
+exit 0

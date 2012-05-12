@@ -1,0 +1,4 @@
+usr/share/openmediavault/* usr/share/openmediavault
+var/www/openmediavault/*	var/www/openmediavault
+etc/apache2/openmediavault-webgui.d/* etc/apache2/openmediavault-webgui.d
+usr/share/phpvirtualbox/* usr/share/phpvirtualbox

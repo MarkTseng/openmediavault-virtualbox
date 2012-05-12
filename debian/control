@@ -1,0 +1,14 @@
+Source: openmediavault-virtualbox
+Section: misc
+Priority: optional
+Maintainer: Marcel Beck <marcel.beck@mbeck.org>
+Build-Depends: debhelper (>= 7 ), unzip, subversion,
+	wget
+Standards-Version: 3.6.10
+Homepage: http://omv-plugins.org/
+
+Package: openmediavault-virtualbox
+Architecture: all
+Depends: openmediavault (>= 0.3) , virtualbox-4.1, makepasswd
+Description: OpenMediaVault VirtualBox plugin
+ Run VirtualBox virtual machines through OpenMediaVault
