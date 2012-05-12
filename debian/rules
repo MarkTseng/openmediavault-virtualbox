@@ -16,7 +16,7 @@ install:
 	dh_installdirs
 	dh_install
 	chmod +x $(CURDIR)/debian/openmediavault-virtualbox/etc/init.d/openmediavault-virtualbox
-	chmod +x $(CURDIR)/debian/openmediavault-website/usr/share/openmediavault/scripts/virtualbox
+	chmod +x $(CURDIR)/debian/openmediavault-virtualbox/usr/share/openmediavault/scripts/virtualbox
 
 binary-indep: install omv_clean_scm
 	dh_testdir
