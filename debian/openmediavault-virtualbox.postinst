@@ -77,6 +77,9 @@ case "$1" in
 	# Reload apache config
 	monit restart apache2
 
+	sudo wget -P /tmp http://download.virtualbox.org/virtualbox/4.1.14/Oracle_VM_VirtualBox_Extension_Pack-4.1.14.vbox-extpack
+	sudo VBoxManage extpack install --replace /tmp/Oracle_VM_VirtualBox_Extension_Pack-4.1.14.vbox-extpack
+
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

@@ -94,7 +94,7 @@ Ext.extend(OMV.Module.Services.vboxSettingsPanel, OMV.FormPanelExt, {
 						valueField   :"uuid",
 						store        :new OMV.data.Store({
 							remoteSort:false,
-							proxy: OMV.data.DataProxy({"service":"ShareMgmt", "method":"getCandidates"}),
+							proxy     :new OMV.data.DataProxy({"service":"ShareMgmt", "method":"getCandidates"}),
 							reader    :new Ext.data.JsonReader({
 								idProperty:"uuid",
 								fields    :[
@@ -197,7 +197,7 @@ Ext.extend(OMV.Module.Services.vboxMachinesGridPanel, OMV.grid.TBarGridPanel, {
 		this.store = new OMV.data.Store({
 			autoLoad  :false,
 			remoteSort:false,
-			proxy: OMV.data.DataProxy({"service":"virtualbox", "method":"getMachines"}),
+			proxy     :new OMV.data.DataProxy({"service":"virtualbox", "method":"getMachines"}),
 			reader    :new Ext.data.JsonReader({
 				idProperty   :"uuid",
 				totalProperty:"total",
@@ -385,10 +385,7 @@ Ext.extend(OMV.Module.Services.vboxMachinesGridPanel, OMV.grid.TBarGridPanel, {
 		var vm = this.getSelectionModel().getSelected().get("uuid");
 		OMV.MessageBox.wait(null, s.text);
 		// Execute RPC
-		OMV.Ajax.request(this.cbVMStateHdl, this, "VirtualBox",
-						'setMachineState', [
-							{ 'uuid':vm, 'state':s.action}
-						]);
+		OMV.Ajax.request(this.cbVMStateHdl, this, "VirtualBox", 'setMachineState', { 'uuid':vm, 'state':s.action});
 
 	},
 
