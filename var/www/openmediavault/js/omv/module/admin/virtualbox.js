@@ -29,7 +29,7 @@ Ext.ns("OMV.Module.Services");
 
 //Register the menu.
 OMV.NavigationPanelMgr.registerMenu("services", "virtualbox", {
-	text:"VirtualBox",
+	text:_("VirtualBox"),
 	icon:"images/virtualbox.png"
 });
 
@@ -51,7 +51,7 @@ Ext.extend(OMV.Module.Services.vboxSettingsPanel, OMV.FormPanelExt, {
 
 			// Disable machines tab?
 			var checked = this.findFormField("enable").checked;
-			var rp = this.ownerCt.find('title', 'Virtual Machines');
+			var rp = this.ownerCt.find('title', _('Virtual Machines'));
 			if (rp.length > 0)
 				(checked ? rp[0].enable() : rp[0].disable());
 
@@ -63,7 +63,7 @@ Ext.extend(OMV.Module.Services.vboxSettingsPanel, OMV.FormPanelExt, {
 		return [
 			{
 				xtype   :"fieldset",
-				title   :"General settings",
+				title   :_("General settings"),
 				defaults:{
 					labelSeparator:""
 				},
@@ -71,7 +71,7 @@ Ext.extend(OMV.Module.Services.vboxSettingsPanel, OMV.FormPanelExt, {
 					{
 						xtype     :"checkbox",
 						name      :"enable",
-						fieldLabel:"Enable",
+						fieldLabel:_("Enable"),
 						checked   :false,
 						inputValue:1,
 						listeners :{
@@ -83,8 +83,8 @@ Ext.extend(OMV.Module.Services.vboxSettingsPanel, OMV.FormPanelExt, {
 						xtype        :"combo",
 						name         :"mntentref",
 						hiddenName   :"mntentref",
-						fieldLabel   :"Virtual Machine Volume",
-						emptyText    :"Select a volume ...",
+						fieldLabel   :_("Virtual Machine Volume"),
+						emptyText    :_("Select a volume ..."),
 						allowBlank   :false,
 						allowNone    :false,
 						width        :400,
@@ -107,7 +107,7 @@ Ext.extend(OMV.Module.Services.vboxSettingsPanel, OMV.FormPanelExt, {
 					{
 						xtype     :"textfield",
 						name      :"vm-folder",
-						fieldLabel:"Virtual Machine Folder",
+						fieldLabel:_("Virtual Machine Folder"),
 						allowNone :true,
 						readOnly  :true,
 						hiddenName:"vm-folder",
@@ -117,7 +117,7 @@ Ext.extend(OMV.Module.Services.vboxSettingsPanel, OMV.FormPanelExt, {
 			},
 			{
 				xtype   :"fieldset",
-				title   :"phpVirtualBox",
+				title   :_("phpVirtualBox"),
 				defaults:{
 					labelSeparator:""
 				},
@@ -125,11 +125,11 @@ Ext.extend(OMV.Module.Services.vboxSettingsPanel, OMV.FormPanelExt, {
 					{
 						xtype     :"checkbox",
 						name      :"enable-advanced",
-						fieldLabel:"Advanced Config",
+						fieldLabel:_("Advanced Config"),
 						checked   :false,
 						inputValue:1,
 						plugins   :[ OMV.form.plugins.FieldInfo ],
-						infoText  :"Show advanced configuration options in phpVirtualBox web interface."
+						infoText  :_("Show advanced configuration options in phpVirtualBox web interface.")
 					}
 				]
 			}
@@ -167,19 +167,19 @@ OMV.Module.Services.vboxMachinesGridPanel = function (config) {
 		colModel:new Ext.grid.ColumnModel({
 			columns:[
 				{
-					header   :"Virtual Machine",
+					header   :_("Virtual Machine"),
 					sortable :true,
 					dataIndex:"name",
 					renderer :this.vmRenderer
 				},
 				{
-					header   :"State",
+					header   :_("State"),
 					sortable :true,
 					dataIndex:"state",
 					renderer :this.stateRenderer
 				},
 				{
-					header   :"Startup Mode",
+					header   :_("Startup Mode"),
 					sortable :true,
 					dataIndex:"startupMode",
 					renderer :this.startModeRenderer
@@ -246,31 +246,31 @@ Ext.extend(OMV.Module.Services.vboxMachinesGridPanel, OMV.grid.TBarGridPanel, {
 		{
 			action  :'saveState',
 			vmstates:['Running'],
-			text    :'Save the machine state',
+			text    :_('Save the machine state'),
 			icon    :"/virtualbox/images/vbox/fd_16px.png"
 		},
 		{
 			action  :'powerButton',
 			vmstates:['Running'],
-			text    :'ACPI Shutdown',
+			text    :_('ACPI Shutdown'),
 			icon    :"/virtualbox/images/vbox/acpi_16px.png"
 		},
 		{
 			action  :'pause',
 			vmstates:['Running'],
-			text    :'Pause',
+			text    :_('Pause'),
 			icon    :"/virtualbox/images/vbox/pause_16px.png"
 		},
 		{
 			action  :'powerDown',
 			vmstates:['Running', 'Paused', 'Stuck'],
-			text    :'Power off the machine',
+			text    :_('Power off the machine'),
 			icon    :"/virtualbox/images/vbox/poweroff_16px.png"
 		},
 		{
 			action  :'reset',
 			vmstates:['Running'],
-			text    :'Reset',
+			text    :_('Reset'),
 			icon    :"/virtualbox/images/vbox/reset_16px.png"
 		}
 	],
@@ -291,12 +291,12 @@ Ext.extend(OMV.Module.Services.vboxMachinesGridPanel, OMV.grid.TBarGridPanel, {
 		tbar.insert(5, {
 			id      :this.getId() + "-start",
 			xtype   :"button",
-			text    :"Start",
+			text    :_("Start"),
 			icon    :"/virtualbox/images/vbox/start_16px.png",
 			handler :function () {
 				this.cbStateHdl({
 					action:'powerUp',
-					text  :"Start"
+					text  :_("Start")
 				});
 			},
 			disabled:true,
@@ -314,7 +314,7 @@ Ext.extend(OMV.Module.Services.vboxMachinesGridPanel, OMV.grid.TBarGridPanel, {
 		tbar.insert(6, {
 			id      :this.getId() + "-stop",
 			xtype   :"button",
-			text    :"Stop",
+			text    :_("Stop"),
 			icon    :"/virtualbox/images/vbox/state_powered_off_16px.png",
 			disabled:true,
 			menu    :menuItems,
@@ -324,7 +324,7 @@ Ext.extend(OMV.Module.Services.vboxMachinesGridPanel, OMV.grid.TBarGridPanel, {
 		tbar.insert(9, {
 			id      :this.getId() + "-edit",
 			xtype   :"button",
-			text    :"Edit",
+			text    :_("Edit"),
 			icon    :"images/edit.png",
 			handler :this.cbEditBtnHdl.createDelegate(this),
 			disabled:true,
@@ -336,7 +336,7 @@ Ext.extend(OMV.Module.Services.vboxMachinesGridPanel, OMV.grid.TBarGridPanel, {
 		tbar.insert(20, {
 			id     :this.getId() + "-phpvbx",
 			xtype  :"button",
-			text   :"phpVirtualBox",
+			text   :_("phpVirtualBox"),
 			icon   :"/virtualbox/images/vbox/OSE/VirtualBox_16px.png",
 			handler:function () {
 				window.open("/virtualbox/");
@@ -393,7 +393,7 @@ Ext.extend(OMV.Module.Services.vboxMachinesGridPanel, OMV.grid.TBarGridPanel, {
 
 		if (error !== null) {
 			OMV.MessageBox.hide();
-			OMV.MessageBox.error("Progress error", error);
+			OMV.MessageBox.error(_("Progress error"), error);
 			return;
 		}
 
@@ -500,13 +500,13 @@ Ext.extend(OMV.Module.Services.vboxMachinesGridPanel, OMV.grid.TBarGridPanel, {
 OMV.NavigationPanelMgr.registerPanel("services", "virtualbox", {
 	cls     :OMV.Module.Services.vboxSettingsPanel,
 	position:10,
-	title   :"Settings"
+	title   :_("Settings")
 });
 
 OMV.NavigationPanelMgr.registerPanel("services", "virtualbox", {
 	cls     :OMV.Module.Services.vboxMachinesGridPanel,
 	position:20,
-	title   :"Virtual Machines"
+	title   :_("Virtual Machines")
 });
 
 OMV.Module.Services.vboxVMEditDialog = function (config) {
@@ -514,7 +514,7 @@ OMV.Module.Services.vboxVMEditDialog = function (config) {
 		rpcService  :"virtualbox",
 		rpcGetMethod:"getMachine",
 		rpcSetMethod:"setMachine",
-		title       :"Edit Virtual Machine",
+		title       :_("Edit Virtual Machine"),
 		autoHeight  :true
 	};
 	Ext.apply(initialConfig, config);
@@ -543,13 +543,13 @@ Ext.extend(OMV.Module.Services.vboxVMEditDialog, OMV.CfgObjectDialog, {
 			{
 				xtype        :"combo",
 				name         :"startupMode",
-				fieldLabel   :"Startup Mode",
+				fieldLabel   :_("Startup Mode"),
 				mode         :"local",
 				store        :new Ext.data.SimpleStore({
 					fields:[ "value", "text" ],
 					data  :[
-						[ "manual", "Manual" ],
-						[ "auto", "Automatic" ]
+						[ "manual", _("Manual") ],
+						[ "auto", _("Automatic") ]
 					]
 				}),
 				displayField :"text",
@@ -580,21 +580,21 @@ Ext.extend(OMV.Module.Services.vboxVMEditDialog, OMV.CfgObjectDialog, {
 function vboxVMState(state) {
 	switch (state) {
 		case 'PoweredOff':
-			return 'Powered Off';
+			return _('Powered Off');
 		case 'LiveSnapshotting':
-			return 'Live Snapshotting';
+			return _('Live Snapshotting');
 		case 'TeleportingPausedVM':
-			return 'Teleporting Paused VM';
+			return _('Teleporting Paused VM');
 		case 'TeleportingIn':
-			return 'Teleporting In';
+			return _('Teleporting In');
 		case 'TakingLiveSnapshot':
-			return 'Taking Live Snapshot';
+			return _('Taking Live Snapshot');
 		case 'RestoringSnapshot':
-			return 'Restoring Snapshot';
+			return _('Restoring Snapshot');
 		case 'DeletingSnapshot':
-			return 'Deleting Snapshot';
+			return _('Deleting Snapshot');
 		case 'SettingUp':
-			return 'Setting Up';
+			return _('Setting Up');
 		default:
 			return state;
 	}
