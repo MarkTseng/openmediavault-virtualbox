@@ -11,8 +11,9 @@ install:
 	dh_testdir
 	dh_testroot
 	dh_prep
+	rm -rf usr/share/phpvirtualbox
 	svn export http://phpvirtualbox.googlecode.com/svn/trunk/ usr/share/phpvirtualbox
-	mv phpvirtualbox_config.php usr/share/phpvirtualbox/config.php
+	cp phpvirtualbox_config.php usr/share/phpvirtualbox/config.php
 	dh_installdirs
 	dh_install
 	chmod +x $(CURDIR)/debian/openmediavault-virtualbox/etc/init.d/openmediavault-virtualbox
