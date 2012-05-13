@@ -1,0 +1,84 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-virtualbox\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-05-13 03:22+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Advanced Config"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Edit Virtual Machine"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "General settings"
+msgstr ""
+
+msgid "Manual"
+msgstr ""
+
+msgid "Progress error"
+msgstr ""
+
+msgid "Select a volume ..."
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Show advanced configuration options in phpVirtualBox web interface."
+msgstr ""
+
+msgid "Start"
+msgstr ""
+
+msgid "Startup Mode"
+msgstr ""
+
+msgid "State"
+msgstr ""
+
+msgid "Stop"
+msgstr ""
+
+msgid "Virtual Machine"
+msgstr ""
+
+msgid "Virtual Machine Folder"
+msgstr ""
+
+msgid "Virtual Machine Volume"
+msgstr ""
+
+msgid "Virtual Machines"
+msgstr ""
+
+msgid "VirtualBox"
+msgstr ""
+
+msgid "VirtualBox Web Service"
+msgstr ""
+
+msgid "phpVirtualBox"
+msgstr ""
