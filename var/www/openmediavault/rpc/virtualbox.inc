@@ -39,7 +39,6 @@ class VirtualBoxRpc extends OMVRpc {
 	{
 
 		$this->methodSchemata = array(
-
 			"set"             => array(
 				'{
 				"type":"object",
@@ -52,38 +51,44 @@ class VirtualBoxRpc extends OMVRpc {
 			}'
 			),
 			"getMachines"     => array(
-				'{"type":"integer"}', // start
-				'{"type":"integer"}', // count
-				'{' . $GLOBALS['OMV_JSONSCHEMA_SORTFIELD'] . '}', // sortField
-				'{' . $GLOBALS['OMV_JSONSCHEMA_SORTDIR'] . '}' // sortDir
+				'{
+					"type":"object",
+					"properties":{
+						"start":{"type":"integer"},
+						"limit":{' . $GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'] . '},
+						"sortfield":{' . $GLOBALS['OMV_JSONSCHEMA_SORTFIELD'] . '},
+						"sortdir":{' . $GLOBALS['OMV_JSONSCHEMA_SORTDIR'] . '}
+					}
+				}'
 			),
 			"setMachine"      => array(
 				'{
-				"type":"object",
-				"properties":{
-					"uuid":{"type":"string","format":"regex","pattern":"\/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$\/i"},
-					"name":{"type":"string","optional":true},
-					"startupMode":{"type":"string","enum":["auto","manual"]}
-				}
-			}'
+					"type":"object",
+					"properties":{
+						"uuid":{"type":"string","format":"regex","pattern":"\/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$\/i"},
+						"name":{"type":"string","optional":true},
+						"startupMode":{"type":"string","enum":["auto","manual"]}
+					}
+				}'
 			),
 			"getMachine"      => array(
-				'
-				{"type":"string","format":"regex","pattern":"\/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$\/i"}
-			'
+				'{
+					"type":"object",
+					"properties":{
+						"uuid":{"type":"string","format":"regex","pattern":"\/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$\/i"}
+					}
+				}'
 			),
 
 			"setMachineState" => array(
 				'{
-				"type":"object",
-				"properties": {
-                	"uuid":{"type":"string","format":"regex","pattern":"\/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$\/i"},
-					"state":{"type":"string"}
-				}
-			
-            }'
+					"type":"object",
+					"properties": {
+						"uuid":{"type":"string","format":"regex","pattern":"\/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$\/i"},
+						"state":{"type":"string"}
+					}
+				}'
 			)
-
 		);
 	}
 
@@ -229,8 +234,7 @@ class VirtualBoxRpc extends OMVRpc {
 
 		// Notify general configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-												"org.openmediavault.services.virtualbox", $object);
+		$dispatcher->notify(OMV_NOTIFY_MODIFY, "org.openmediavault.services.virtualbox", $object);
 
 	}
 
@@ -238,7 +242,7 @@ class VirtualBoxRpc extends OMVRpc {
 	/**
 	 * Get list of machine objects.
 	 */
-	public function getMachines($start, $count, $sortField, $sortDir)
+	public function getMachines($data)
 	{
 
 		// Validation
@@ -265,7 +269,7 @@ class VirtualBoxRpc extends OMVRpc {
 		restore_error_handler();
 
 		// Filter result
-		return $this->applyFilter($objects, $start, $count, $sortField, $sortDir);
+		return $this->applyFilter($objects, $data['start'], $data['limit'], $data['sortfield'], $data['sortdir']);
 
 	}
 
@@ -312,7 +316,7 @@ class VirtualBoxRpc extends OMVRpc {
 	/**
 	 * Get a single machine's configuration
 	 */
-	public function getMachine($uuid)
+	public function getMachine($data)
 	{
 
 		// Validation
@@ -324,7 +328,7 @@ class VirtualBoxRpc extends OMVRpc {
 		$vb                   = new vboxconnector();
 		$vb->skipSessionCheck = true;
 		$vb->connect();
-		$m      = $vb->vbox->findMachine($uuid);
+		$m      = $vb->vbox->findMachine($data['uuid']);
 		$object = array(
 			'uuid'         => $m->id,
 			'name'         => $m->name,
@@ -351,8 +355,9 @@ class VirtualBoxRpc extends OMVRpc {
 		set_error_handler(array($this, 'ignore_notice'), E_NOTICE);
 		$vb                   = new vboxconnector();
 		$vb->skipSessionCheck = true;
-		$args                 = array('vm'   => $data['uuid'],
-																	'state'=> $data['state']
+		$args                 = array(
+			'vm'   => $data['uuid'],
+			'state'=> $data['state']
 		);
 		$response             = array();
 		$vb->machineSetState($args, array(&$response));

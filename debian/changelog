@@ -1,3 +1,9 @@
+openmediavault-virtualbox (0.3) unstable; urgency=low
+
+  * OMV 0.3 Port
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Sun, 13 May 2012 09:36:04 +0200
+
 openmediavault-virtualbox (0.2) unstable; urgency=low
 
   * Initial Import from http://code.google.com/p/omv-plugins

@@ -94,8 +94,7 @@ Ext.extend(OMV.Module.Services.vboxSettingsPanel, OMV.FormPanelExt, {
 						valueField   :"uuid",
 						store        :new OMV.data.Store({
 							remoteSort:false,
-							proxy     :new OMV.data.DataProxy("ShareMgmt",
-											"getCandidates"),
+							proxy: OMV.data.DataProxy({"service":"ShareMgmt", "method":"getCandidates"}),
 							reader    :new Ext.data.JsonReader({
 								idProperty:"uuid",
 								fields    :[
@@ -189,8 +188,7 @@ OMV.Module.Services.vboxMachinesGridPanel = function (config) {
 		})
 	};
 	Ext.apply(initialConfig, config);
-	OMV.Module.Services.vboxMachinesGridPanel.superclass.constructor.call(
-					this, initialConfig);
+	OMV.Module.Services.vboxMachinesGridPanel.superclass.constructor.call(this, initialConfig);
 };
 
 Ext.extend(OMV.Module.Services.vboxMachinesGridPanel, OMV.grid.TBarGridPanel, {
@@ -199,7 +197,7 @@ Ext.extend(OMV.Module.Services.vboxMachinesGridPanel, OMV.grid.TBarGridPanel, {
 		this.store = new OMV.data.Store({
 			autoLoad  :false,
 			remoteSort:false,
-			proxy     :new OMV.data.DataProxy("virtualbox", "getMachines"),
+			proxy: OMV.data.DataProxy({"service":"virtualbox", "method":"getMachines"}),
 			reader    :new Ext.data.JsonReader({
 				idProperty   :"uuid",
 				totalProperty:"total",
@@ -214,8 +212,7 @@ Ext.extend(OMV.Module.Services.vboxMachinesGridPanel, OMV.grid.TBarGridPanel, {
 				]
 			})
 		});
-		OMV.Module.Services.vboxMachinesGridPanel.superclass.initComponent.
-						apply(this, arguments);
+		OMV.Module.Services.vboxMachinesGridPanel.superclass.initComponent.apply(this, arguments);
 
 		this.store.on("beforeload", function (store, options) {
 			var sm = this.getSelectionModel();
@@ -468,8 +465,7 @@ Ext.extend(OMV.Module.Services.vboxMachinesGridPanel, OMV.grid.TBarGridPanel, {
 	},
 
 	cbSelectionChangeHdl:function (model) {
-		OMV.Module.Services.vboxMachinesGridPanel.superclass.
-						cbSelectionChangeHdl.apply(this, arguments);
+		OMV.Module.Services.vboxMachinesGridPanel.superclass.cbSelectionChangeHdl.apply(this, arguments);
 		// Process additional buttons
 		var records = model.getSelections();
 		var startBtn = this.getTopToolbar().findById(this.getId() + "-start");
@@ -525,14 +521,12 @@ OMV.Module.Services.vboxVMEditDialog = function (config) {
 		autoHeight  :true
 	};
 	Ext.apply(initialConfig, config);
-	OMV.Module.Services.vboxVMEditDialog.superclass.constructor.call(
-					this, initialConfig);
+	OMV.Module.Services.vboxVMEditDialog.superclass.constructor.call(this, initialConfig);
 };
 
 Ext.extend(OMV.Module.Services.vboxVMEditDialog, OMV.CfgObjectDialog, {
 	initComponent:function () {
-		OMV.Module.Services.vboxVMEditDialog.superclass.initComponent.
-						apply(this, arguments);
+		OMV.Module.Services.vboxVMEditDialog.superclass.initComponent.apply(this, arguments);
 		this.on("load", this._updateFormFields, this);
 	},
 
