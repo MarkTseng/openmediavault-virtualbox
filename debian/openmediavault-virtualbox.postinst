@@ -79,6 +79,7 @@ case "$1" in
 
 	sudo wget -P /tmp http://download.virtualbox.org/virtualbox/4.1.14/Oracle_VM_VirtualBox_Extension_Pack-4.1.14.vbox-extpack
 	sudo VBoxManage extpack install --replace /tmp/Oracle_VM_VirtualBox_Extension_Pack-4.1.14.vbox-extpack
+	sudo rm -rf /tmp/Oracle_VM_VirtualBox_Extension_Pack-4.1.14.vbox-extpack
 
     ;;
 
