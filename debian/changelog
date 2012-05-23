@@ -1,3 +1,12 @@
+openmediavault-virtualbox (0.3.1) unstable; urgency=low
+
+  * Modified rules file to force phpvirtualbox update
+  * Install Virtualbox extpack
+  * Update vbox-extpack
+  * Various fixes
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Wed, 23 May 2012 18:52:32 +0200
+
 openmediavault-virtualbox (0.3) unstable; urgency=low
 
   * OMV 0.3 Port
