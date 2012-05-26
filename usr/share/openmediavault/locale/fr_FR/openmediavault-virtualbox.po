@@ -3,67 +3,68 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: OMV Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-25 10:12+0200\n"
-"PO-Revision-Date: 2012-05-13 17:24+0000\n"
-"Last-Translator: Marcel Beck <fo3nik5@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2012-05-14 13:34+0000\n"
+"Last-Translator: Stéphane BOCQUET <stephane_bocquet@hotmail.com>\n"
+"Language-Team: French (http://www.transifex.net/projects/p/OMVPlugins/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
 msgid "Advanced Config"
-msgstr "Advanced Config"
+msgstr "Configuration avancée"
 
 msgid "Automatic"
-msgstr "Automatic"
+msgstr "Automatique"
 
 msgid "Edit"
-msgstr "Edit"
+msgstr "Modifier"
 
 msgid "Edit Virtual Machine"
-msgstr "Edit Virtual Machine"
+msgstr "Modifier la machine virtuelle"
 
 msgid "Enable"
-msgstr "Enable"
+msgstr "Activer"
 
 msgid "General settings"
-msgstr "General settings"
+msgstr "Paramètres généraux"
 
 msgid "Manual"
-msgstr "Manual"
+msgstr "Manuel"
 
 msgid "Progress error"
 msgstr "Progress error"
 
 msgid "Select a volume ..."
-msgstr "Select a volume ..."
+msgstr "Sélectionnez un volume ..."
 
 msgid "Settings"
-msgstr "Settings"
+msgstr "Paramètres"
 
 msgid "Show advanced configuration options in phpVirtualBox web interface."
-msgstr "Show advanced configuration options in phpVirtualBox web interface."
+msgstr "Affiche les options de configuration avancées dans l'interface web de phpVirtualBox."
 
 msgid "Start"
-msgstr "Start"
+msgstr "Démarrer"
 
 msgid "Startup Mode"
-msgstr "Startup Mode"
+msgstr "Mode de démarrage"
 
 msgid "State"
-msgstr "State"
+msgstr "État"
 
 msgid "Stop"
-msgstr "Stop"
+msgstr "Arrêter"
 
 msgid "Virtual Machine"
-msgstr "Virtual Machine"
+msgstr "Machine virtuelle"
 
 msgid "Virtual Machine Folder"
 msgstr "Virtual Machine Folder"
@@ -72,13 +73,13 @@ msgid "Virtual Machine Volume"
 msgstr "Virtual Machine Volume"
 
 msgid "Virtual Machines"
-msgstr "Virtual Machines"
+msgstr "Machines virtuelles"
 
 msgid "VirtualBox"
 msgstr "VirtualBox"
 
 msgid "VirtualBox Web Service"
-msgstr "VirtualBox Web Service"
+msgstr "Service Web Virtualbox"
 
 msgid "phpVirtualBox"
 msgstr "phpVirtualBox"

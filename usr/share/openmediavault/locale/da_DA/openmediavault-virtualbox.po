@@ -3,82 +3,83 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Stefan Thrane Overby <stoverby@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: OMV Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-25 10:12+0200\n"
-"PO-Revision-Date: 2012-05-13 17:24+0000\n"
-"Last-Translator: Marcel Beck <fo3nik5@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2012-05-14 20:49+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
+"Language-Team: Danish (http://www.transifex.net/projects/p/OMVPlugins/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en\n"
+"Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "Advanced Config"
-msgstr "Advanced Config"
+msgstr "Avanceret Konfiguration"
 
 msgid "Automatic"
-msgstr "Automatic"
+msgstr "Automatisk"
 
 msgid "Edit"
-msgstr "Edit"
+msgstr "Rediger"
 
 msgid "Edit Virtual Machine"
-msgstr "Edit Virtual Machine"
+msgstr "Rediger Virtuel Maskine"
 
 msgid "Enable"
-msgstr "Enable"
+msgstr "Aktiver"
 
 msgid "General settings"
-msgstr "General settings"
+msgstr "Generelle indstillinger"
 
 msgid "Manual"
-msgstr "Manual"
+msgstr "Manuel"
 
 msgid "Progress error"
-msgstr "Progress error"
+msgstr "Status fejl"
 
 msgid "Select a volume ..."
-msgstr "Select a volume ..."
+msgstr "Vælg et drev ..."
 
 msgid "Settings"
-msgstr "Settings"
+msgstr "Indstillinger"
 
 msgid "Show advanced configuration options in phpVirtualBox web interface."
-msgstr "Show advanced configuration options in phpVirtualBox web interface."
+msgstr "Vis avanceret konfigurations muligheder på phpVirtuelBox webinterface."
 
 msgid "Start"
 msgstr "Start"
 
 msgid "Startup Mode"
-msgstr "Startup Mode"
+msgstr "Opstarts Modus"
 
 msgid "State"
-msgstr "State"
+msgstr "Status"
 
 msgid "Stop"
 msgstr "Stop"
 
 msgid "Virtual Machine"
-msgstr "Virtual Machine"
+msgstr "Virtuel Maskine"
 
 msgid "Virtual Machine Folder"
-msgstr "Virtual Machine Folder"
+msgstr "Virtuel Maskine Mappe"
 
 msgid "Virtual Machine Volume"
-msgstr "Virtual Machine Volume"
+msgstr "Virtuel Maskine Drev"
 
 msgid "Virtual Machines"
-msgstr "Virtual Machines"
+msgstr "Virtuel Maskiner"
 
 msgid "VirtualBox"
-msgstr "VirtualBox"
+msgstr "VirtuelBox"
 
 msgid "VirtualBox Web Service"
-msgstr "VirtualBox Web Service"
+msgstr "VirtuelBox Web Service"
 
 msgid "phpVirtualBox"
-msgstr "phpVirtualBox"
+msgstr "phpVirtuelBox"
