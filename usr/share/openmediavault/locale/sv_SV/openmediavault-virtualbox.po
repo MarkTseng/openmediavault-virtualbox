@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Henrik Sandström <henrik.sandstroem@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: OMV Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-07 19:25+0200\n"
-"PO-Revision-Date: 2012-05-13 17:24+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2012-08-26 09:30+0000\n"
+"Last-Translator: Henrik Sandström <henrik.sandstroem@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/OMVPlugins/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,67 +19,67 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "Advanced Config"
-msgstr ""
+msgstr "Avancerad konfiguration"
 
 msgid "Automatic"
-msgstr ""
+msgstr "Automatisk"
 
 msgid "Edit"
-msgstr ""
+msgstr "Redigera"
 
 msgid "Edit Virtual Machine"
-msgstr ""
+msgstr "Redigera virtuell maskin"
 
 msgid "Enable"
-msgstr ""
+msgstr "Aktivera"
 
 msgid "General settings"
-msgstr ""
+msgstr "Allmänna inställningar"
 
 msgid "Manual"
-msgstr ""
+msgstr "Manuell"
 
 msgid "Progress error"
-msgstr ""
+msgstr "Fel i framsteg"
 
 msgid "Select a volume ..."
-msgstr ""
+msgstr "Välj en volym ..."
 
 msgid "Settings"
-msgstr ""
+msgstr "Inställningar"
 
 msgid "Show advanced configuration options in phpVirtualBox web interface."
-msgstr ""
+msgstr "Visa avancerade konfigurations-egenskaper i phpVirtualBox's webb-gränssnitt."
 
 msgid "Start"
-msgstr ""
+msgstr "Starta"
 
 msgid "Startup Mode"
-msgstr ""
+msgstr "Startläge"
 
 msgid "State"
-msgstr ""
+msgstr "Tillstånd"
 
 msgid "Stop"
-msgstr ""
+msgstr "Stoppa"
 
 msgid "Virtual Machine"
-msgstr ""
+msgstr "Virtuell maskin"
 
 msgid "Virtual Machine Folder"
-msgstr ""
+msgstr "Virtuell maskin-mapp"
 
 msgid "Virtual Machine Volume"
-msgstr ""
+msgstr "Virtuell maskin-volym"
 
 msgid "Virtual Machines"
-msgstr ""
+msgstr "Virtuella maskiner"
 
 msgid "VirtualBox"
-msgstr ""
+msgstr "VirtualBox"
 
 msgid "VirtualBox Web Service"
-msgstr ""
+msgstr "VirtualBox webbtjänst"
 
 msgid "phpVirtualBox"
-msgstr ""
+msgstr "phpVirtualBox"
