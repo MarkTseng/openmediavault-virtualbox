@@ -1,3 +1,9 @@
+openmediavault-virtualbox (0.3.3) unstable; urgency=low
+
+  * Update locale
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Sat, 01 Sep 2012 17:28:29 +0200
+
 openmediavault-virtualbox (0.3.2) unstable; urgency=low
 
   * Modified dependencies
