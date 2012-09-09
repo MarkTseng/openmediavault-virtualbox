@@ -39,32 +39,32 @@ case "$1" in
 
 	# Check for user config
 	if [ ! -e /etc/default/openmediavault-virtualbox ]; then
-		
+
 		# No user config, should the user be created?
 		if [ $(groups ${OMV_VBOX_USER} 2>/dev/null | wc -l) -eq 0 ]; then
-			
+
 			# Generate random password
 			NPSWD=$(makepasswd --crypt-md5 --chars=10)
 			NPSWD_CLEAR=$(echo ${NPSWD} | awk '{ print $1 }')
 			NPSWD_CRYPT=$(echo ${NPSWD} | awk '{ print $2 }')
-			
+
 			# Add user
 			useradd -d /home/${OMV_VBOX_USER} -c "openmediavault-virtualbox" -m -p ${NPSWD_CRYPT} -N -g vboxusers ${OMV_VBOX_USER}
-			
+
 			# Store password for vboxwebsrv connectivity
 			echo "${NPSWD_CLEAR}" >/etc/default/openmediavault-virtualbox
-			
+
 		fi
-		
+
 	fi
-	
+
 	# Fix permissions
 	chown root:root /etc/default/openmediavault-virtualbox
 	chmod 0600 /etc/default/openmediavault-virtualbox
 	chmod u+rx /etc/init.d/openmediavault-virtualbox
-	
+
 	omv_install_fixperms
-	
+
 	# Clean up old version of plugin
 	if [ -f /etc/apache2/sites-enabled/phpvirtualbox ]; then
 		/bin/rm -f /etc/apache2/sites-enabled/phpvirtualbox
@@ -73,13 +73,13 @@ case "$1" in
 	if [ -f /etc/apache2/sites-available/phpvirtualbox ]; then
 		/bin/rm -f /etc/apache2/sites-available/phpvirtualbox
 	fi
-	
+
 	# Reload apache config
 	monit restart apache2
 
-	sudo wget -P /tmp http://download.virtualbox.org/virtualbox/4.1.16/Oracle_VM_VirtualBox_Extension_Pack-4.1.16.vbox-extpack
-	sudo VBoxManage extpack install --replace /tmp/Oracle_VM_VirtualBox_Extension_Pack-4.1.16.vbox-extpack
-	sudo rm -rf /tmp/Oracle_VM_VirtualBox_Extension_Pack-4.1.16.vbox-extpack
+	sudo wget -P /tmp http://download.virtualbox.org/virtualbox/4.1.22/Oracle_VM_VirtualBox_Extension_Pack-4.1.22-80657.vbox-extpack
+	sudo VBoxManage extpack install --replace /tmp/Oracle_VM_VirtualBox_Extension_Pack-4.1.22-80657.vbox-extpack
+	sudo rm -rf /tmp/Oracle_VM_VirtualBox_Extension_Pack-4.1.22-80657.vbox-extpack
 
     ;;
 
