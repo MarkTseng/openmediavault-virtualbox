@@ -1,3 +1,9 @@
+openmediavault-virtualbox (0.4) stable; urgency=low
+
+  * Upgrade to xmlstarlet 1.3.1.
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Sun, 09 Sep 2012 10:27:26 +0200
+
 openmediavault-virtualbox (0.3.3) unstable; urgency=low
 
   * Update locale
@@ -35,20 +41,20 @@ openmediavault-virtualbox (0.2) unstable; urgency=low
 openmediavault-virtualbox (0.1.3) unstable; urgency=low
 
   * Updated with latest phpVirtualBox version.
-  	
+
  -- Ian Moore <imooreyahoo@gmail.com>  Tue, 03 Jan 2012 15:23:47 -0500
 
 openmediavault-virtualbox (0.1.2) unstable; urgency=low
 
   * Updated for compatibility with new apache configuration
   	introduced in new OpenMediaVault version.
-  	
+
  -- Ian Moore <imooreyahoo@gmail.com>  Tue, 03 Jan 2012 09:48:31 -0500
 
 openmediavault-virtualbox (0.1.1) unstable; urgency=low
 
   * Fixed bug in postrm script that would remove configuration during
-  	openmediavault-virtualbox package upgrade.  	
+  	openmediavault-virtualbox package upgrade.
   * Fixed bug that would not re-enable vboxweb-service init script
   	after previously having disabled it.
 
