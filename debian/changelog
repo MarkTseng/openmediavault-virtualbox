@@ -1,3 +1,9 @@
+openmediavault-virtualbox (0.4.1) stable; urgency=low
+
+  * Github Issue Fix #4 - phpVirtualBox version doesn't match VirtualBox
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Wed, 10 Oct 2012 18:49:05 +0200
+
 openmediavault-virtualbox (0.4) stable; urgency=low
 
   * Upgrade to xmlstarlet 1.3.1.
