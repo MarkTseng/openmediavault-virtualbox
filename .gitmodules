@@ -1,3 +1,0 @@
-[submodule "builds_scripts"]
-	path = builds_scripts
-	url = git://github.com/OMV-Plugins/build_scripts.git
