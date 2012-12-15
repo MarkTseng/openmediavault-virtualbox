@@ -1,3 +1,9 @@
+openmediavault-virtualbox (0.4.2.1) stable; urgency=low
+
+  * Upgrade VirtualBox to Version 4.2
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Sat, 15 Dec 2012 09:56:13 +0100
+
 openmediavault-virtualbox (0.4.1) stable; urgency=low
 
   * Github Issue Fix #4 - phpVirtualBox version doesn't match VirtualBox

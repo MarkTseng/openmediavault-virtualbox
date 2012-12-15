@@ -12,7 +12,7 @@ install:
 	dh_testroot
 	dh_prep
 	rm -rf usr/share/phpvirtualbox
-	svn export http://phpvirtualbox.googlecode.com/svn/branches/4.1/4.1 usr/share/phpvirtualbox
+	svn export http://phpvirtualbox.googlecode.com/svn/trunk usr/share/phpvirtualbox
 	cp phpvirtualbox_config.php usr/share/phpvirtualbox/config.php
 	dh_installdirs
 	dh_install
