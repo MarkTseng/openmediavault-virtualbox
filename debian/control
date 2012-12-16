@@ -8,6 +8,6 @@ Homepage: http://omv-plugins.org/
 
 Package: openmediavault-virtualbox
 Architecture: all
-Depends: openmediavault (>= 0.4) , virtualbox-4.2, makepasswd, wget
+Depends: ${misc:Depends}, openmediavault (>= 0.4) , virtualbox-4.2, makepasswd, wget
 Description: OpenMediaVault VirtualBox plugin
  Run VirtualBox virtual machines through OpenMediaVault
