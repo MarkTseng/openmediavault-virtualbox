@@ -12,7 +12,8 @@ install:
 	dh_testroot
 	dh_prep
 	rm -rf usr/share/phpvirtualbox
-	svn export http://phpvirtualbox.googlecode.com/svn/trunk usr/share/phpvirtualbox
+	wget `wget -q -O - http://phpvirtualbox.googlecode.com/files/LATEST.txt` -O phpvirtualbox-latest.zip
+	unzip phpvirtualbox-latest.zip  -d usr/share/phpvirtualbox
 	cp phpvirtualbox_config.php usr/share/phpvirtualbox/config.php
 	dh_installdirs
 	dh_install

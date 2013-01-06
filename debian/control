@@ -2,7 +2,7 @@ Source: openmediavault-virtualbox
 Section: misc
 Priority: optional
 Maintainer: Marcel Beck <marcel.beck@mbeck.org>
-Build-Depends: debhelper (>= 7 ), subversion
+Build-Depends: debhelper (>= 7 ), subversion, unzip
 Standards-Version: 3.9.3
 Homepage: http://omv-plugins.org/
 
