@@ -13,7 +13,8 @@ install:
 	dh_prep
 	rm -rf usr/share/phpvirtualbox
 	wget `wget -q -O - http://phpvirtualbox.googlecode.com/files/LATEST.txt` -O phpvirtualbox-latest.zip
-	unzip phpvirtualbox-latest.zip  -d usr/share/phpvirtualbox
+	unzip phpvirtualbox-latest.zip  -d /tmp
+	mv /tmp/phpvirtualbox-* usr/share/phpvirtualbox
 	cp phpvirtualbox_config.php usr/share/phpvirtualbox/config.php
 	dh_installdirs
 	dh_install
