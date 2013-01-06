@@ -1,3 +1,9 @@
+openmediavault-virtualbox (0.4.2.2) stable; urgency=low
+
+  * Use phpvirtualbox latest
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Sun, 06 Jan 2013 14:57:30 +0100
+
 openmediavault-virtualbox (0.4.2.1) stable; urgency=low
 
   * Upgrade VirtualBox to Version 4.2
